@@ -3,6 +3,7 @@ const select = document.querySelector(".options");
 const showScore = document.querySelector(".score");
 const showWins = document.querySelector(".win");
 const showLoses = document.querySelector(".loses");
+const endGame = document.querySelector(".end-game");
 
 function computerPlay() {
   const elements = ["rock", "paper", "scissor"];
@@ -34,6 +35,25 @@ const score = {
   loses: 0,
 };
 
+function findWiner() {
+  let hasWinner = false;
+  if (score.wins === 5) {
+    endGame.textContent = "You are the winner!";
+    hasWinner = true;
+  }
+  if (score.loses === 5) {
+    endGame.textContent = "You Lose!";
+    hasWinner = true;
+  }
+  if (hasWinner) {
+    optionsVisible.classList.toggle("--visible");
+    playButton.classList.toggle("--visible");
+    score.wins = 0;
+    score.loses = 0;
+    results.textContent = "";
+  }
+}
+
 function displayResult(round) {
   const roundElement = document.createElement("li");
   roundElement.textContent = round;
@@ -45,6 +65,9 @@ function displayResult(round) {
   if (round.includes("lose")) {
     score.loses++;
   }
+
   showWins.textContent = score.wins;
   showLoses.textContent = score.loses;
+
+  return findWiner();
 }
