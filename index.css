@@ -1,0 +1,24 @@
+.game {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.options {
+  display: none;
+}
+
+.options.--visible {
+  display: block;
+  background-color: antiquewhite;
+}
+
+.submit {
+  display: none;
+}
+
+.submit.--visible {
+  display: block;
+}

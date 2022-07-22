@@ -1,9 +1,3 @@
-function computerPlay() {
-  const elements = ["rock", "paper", "scissor"];
-  const randomIndex = Math.floor(Math.random() * elements.length);
-  return elements[randomIndex];
-}
-
 function playRound(playerSelection, computerSelection) {
   const fixedPlayerSelection = playerSelection.toLowerCase();
   const round = `${fixedPlayerSelection}-${computerSelection}`;
@@ -19,14 +13,16 @@ function playRound(playerSelection, computerSelection) {
 
   return "There is a draw";
 }
+// console.log(playRound(fixedPlayerSelection, computerSelection));
 
 function game() {
   const totalRounds = 5;
   const resultsList = [];
   for (let round = 1; round <= totalRounds; round++) {
-    const playerSelection = prompt(
-      `Round ${round}/${totalRounds}\n make your choice:`
-    );
+    const playerSelection = elements;
+    // prompt(
+    //   `Round ${round}/${totalRounds}\n make your choice:`
+    // );
     const computerSelection = computerPlay();
     const result = playRound(playerSelection, computerSelection);
     resultsList.push(`Round ${round}: ${result}`);
